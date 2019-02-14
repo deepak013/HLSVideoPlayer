@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="300dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <TextView
         android:layout_margin="10dp"
@@ -11,12 +12,28 @@
         android:textSize="25sp"
         android:text="Title"/>
 
-    <com.google.android.exoplayer2.ui.PlayerView
-        android:id="@+id/videoPlayer"
+    <FrameLayout
+        android:id="@+id/videoFrameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginRight="15dp"
         android:layout_marginLeft="15dp"
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:layout_below="@id/videoTitle"></com.google.android.exoplayer2.ui.PlayerView>
+        android:layout_below="@id/videoTitle">
+        <com.google.android.exoplayer2.ui.PlayerView
+            android:id="@+id/videoPlayer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:controller_layout_id="@layout/custom_controls"
+            ></com.google.android.exoplayer2.ui.PlayerView>
+
+        <ProgressBar
+            android:id="@+id/loadingBar"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center"/>
+
+    </FrameLayout>
+
+
 
 </RelativeLayout>

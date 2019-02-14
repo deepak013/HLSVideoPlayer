@@ -27,7 +27,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:layout_margin="15dp"
+        android:layout_margin="6dp"
         app:buffered_color="@color/black_overlay"
         app:played_color="@color/google_blue"
         app:scrubber_color="@color/app_green"

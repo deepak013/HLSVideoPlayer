@@ -13,8 +13,8 @@ import com.google.android.exoplayer2.ExoPlayerFactory;
 import com.google.android.exoplayer2.Player;
 import com.google.android.exoplayer2.SimpleExoPlayer;
 import com.google.android.exoplayer2.extractor.ExtractorsFactory;
-import com.google.android.exoplayer2.source.ExtractorMediaSource;
 import com.google.android.exoplayer2.source.MediaSource;
+import com.google.android.exoplayer2.source.hls.HlsMediaSource;
 import com.google.android.exoplayer2.trackselection.DefaultTrackSelector;
 import com.google.android.exoplayer2.trackselection.TrackSelection;
 import com.google.android.exoplayer2.trackselection.TrackSelector;
@@ -27,7 +27,7 @@ import com.google.android.exoplayer2.util.Util;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class TestActivity extends AppCompatActivity implements Player.EventListener, View.OnClickListener {
+public class TestHLSActivity extends AppCompatActivity implements Player.EventListener, View.OnClickListener {
     private BandwidthMeter bandwidthMeter;
     private TrackSelector trackSelector;
     private TrackSelection.Factory trackSelectionFactory;
@@ -38,7 +38,7 @@ public class TestActivity extends AppCompatActivity implements Player.EventListe
     private MediaSource mediaSource;
 
     private String songUrl = "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4";
-    private String songUrl1 = "https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8";
+    private String songUrlHLS = "https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8";
 
     private ImageButton stopButton;
     private ImageButton startButton;
@@ -73,7 +73,7 @@ public class TestActivity extends AppCompatActivity implements Player.EventListe
 
         player.setPlayWhenReady(playWhenReady);
         player.seekTo(currentWindow, playbackPosition);
-        Uri uri = Uri.parse(songUrl);
+        Uri uri = Uri.parse(songUrlHLS);
         MediaSource mediaSource = buildMediaSource(uri);
         player.prepare(mediaSource, true, false);
         player.addListener(this);
@@ -81,7 +81,7 @@ public class TestActivity extends AppCompatActivity implements Player.EventListe
     }
 
     private MediaSource buildMediaSource(Uri uri) {
-        return new ExtractorMediaSource.Factory(
+        return new HlsMediaSource.Factory(
                 new DefaultHttpDataSourceFactory("exoplayer-codelab")).
                 createMediaSource(uri);
     }
@@ -185,7 +185,7 @@ public class TestActivity extends AppCompatActivity implements Player.EventListe
     public void onPlayerStateChanged(boolean playWhenReady, int playbackState) {
         switch (playbackState){
             case Player.STATE_IDLE :      // The player does not have any media to play yet.
-                 loading.setVisibility(View.VISIBLE);
+                loading.setVisibility(View.VISIBLE);
             case Player.STATE_BUFFERING : // The player is buffering (loading the content)
                 loading.setVisibility(View.VISIBLE);
             case Player.STATE_ENDED :      // The player has finished playing the media
