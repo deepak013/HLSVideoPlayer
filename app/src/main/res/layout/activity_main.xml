@@ -14,15 +14,16 @@
         android:onClick="btnClicked"/>
 
 
-    <!--<androidx.recyclerview.widget.RecyclerView-->
-        <!--android:id="@+id/rvVideos"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:layout_below="@+id/btn"></androidx.recyclerview.widget.RecyclerView>-->
-    <com.example.hlsvideoplayer.ExoPlayerRecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvVideos"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/btn"></com.example.hlsvideoplayer.ExoPlayerRecyclerView>
+        android:layout_below="@+id/btn"
+        android:layout_marginBottom="15dp"></androidx.recyclerview.widget.RecyclerView>
+    <!--<com.example.hlsvideoplayer.ExoPlayerRecyclerView-->
+        <!--android:id="@+id/rvVideos"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_below="@+id/btn"></com.example.hlsvideoplayer.ExoPlayerRecyclerView>-->
 
 </RelativeLayout>

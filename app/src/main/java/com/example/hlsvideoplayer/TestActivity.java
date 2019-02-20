@@ -54,8 +54,8 @@ public class TestActivity extends AppCompatActivity implements Player.EventListe
         setContentView(R.layout.activity_test);
         playerView = findViewById(R.id.testVideoPlayer);
         loading = findViewById(R.id.testLoadingBar);
-        startButton =  findViewById(R.id.btnStart);
-        stopButton =  findViewById(R.id.btnStop);
+        startButton =  findViewById(R.id.btnStartStop);
+        stopButton =  findViewById(R.id.btnStartStop);
 //        startButton.setVisibility(View.GONE);
 //        stopButton.setVisibility(View.GONE);
         startButton.setOnClickListener(this);
@@ -168,12 +168,12 @@ public class TestActivity extends AppCompatActivity implements Player.EventListe
     @Override
     public void onClick(View v) {
         int i=6;
-        if(v.getId()==R.id.btnStop){
+        if(v.getId()==R.id.btnStartStop){
             pausePlayer();
             stopButton.setVisibility(View.GONE);
             startButton.setVisibility(View.VISIBLE);
         }
-        if(v.getId()==R.id.btnStart){
+        if(v.getId()==R.id.btnStartStop){
             startPlayer();
             stopButton.setVisibility(View.VISIBLE);
             startButton.setVisibility(View.GONE);

@@ -5,7 +5,7 @@
     android:layout_height="match_parent">
 
     <ImageButton
-        android:id="@+id/btnStart"
+        android:id="@+id/btnStartStop"
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_gravity="center"
@@ -13,14 +13,14 @@
         android:scaleType="fitXY"
         android:src="@drawable/ic_play" />
 
-    <ImageButton
-        android:id="@+id/btnStop"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:layout_gravity="center"
-        android:padding="10dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/ic_pause" />
+    <!--<ImageButton-->
+        <!--android:id="@+id/btnStop"-->
+        <!--android:layout_width="70dp"-->
+        <!--android:layout_height="70dp"-->
+        <!--android:layout_gravity="center"-->
+        <!--android:padding="10dp"-->
+        <!--android:scaleType="fitXY"-->
+        <!--android:src="@drawable/ic_pause" />-->
 
     <com.google.android.exoplayer2.ui.DefaultTimeBar
         android:id="@+id/exo_progress"
